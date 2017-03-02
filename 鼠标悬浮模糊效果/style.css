@@ -2,19 +2,29 @@
 /*文件中有中文字符，就要声明*/
 *,::after,::before{box-sizing: border-box;}
 /*
- box-sizing:border-box;为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。
+ box-sizing:border-box;为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。见下方的caption的padding和width受到的影响
  */
 *{margin:0;padding:0;}
 a:active{outline: 0;}
 .container{position: relative;width: 720px;height:436px;display: block;margin: 20px auto 0;}
-.container img{width: 100%;height:100%;}
-.container .caption{position: absolute;padding:30px;width: 100%;height:100%;z-index:1;}
-.container .caption .title{position: relative;width: 100%;height:100%;text-align: center;display: flex;justify-content: center;  flex-direction: column;visibility: hidden;transition:all .5s;opacity:0;text-shadow: 1px 1px 2px rgba(0,0,0,.26); }
+.container img{width: 100%;height:100%;  -webkit-transition: -webkit-filter 1.5s;}
+.container:hover img{-webkit-filter:blur(2px);}
 /*
-justify-content:center;弹性盒模型下的元素位于容器的中心
-flex-direction:column;弹性盒模型下的元素将垂直排列
-transition:all; 所有属性发生改变
+    filter （滤镜属性）
+    filter：grayscale(100%)；黑白(100%灰度)
+    filter:blur(2px) 图像设置高斯模糊
+
 */
+.container .caption{position: absolute;padding:30px;width: 100%;height:100%;z-index:1;}
+.container .caption .title{position: relative;width: 100%;height:100%;text-align: center;display: flex;justify-content: center;  flex-direction: column;visibility: hidden;transition:opacity .5s;opacity:0;text-shadow: 1px 1px 2px rgba(0,0,0,.26);
+    /*
+    justify-content:center;弹性盒模型下的元素位于容器的中心
+    flex-direction:column;弹性盒模型下的元素将垂直排列
+    transition:all; 所有属性发生改变
+    */
+box-shadow: 0px 0px 30px 20px rgba(0,0,0,.46);
+}
+
 .container .streamer{font-size: 68px;font-weight: bold;
 }
 .container .breath{font-size: 15px;color:#3498db;}
@@ -40,10 +50,12 @@ transition:all; 所有属性发生改变
 
 }
 
-
 .container .caption .title::before{content:''; left:0;width:100%;height:0;border:3px solid #fffffb;border-width:0 3px;position:absolute;top:50%;transition: all .5s;visibility: hidden; }
 .container .caption .title::after{content:''; left:50%;width:0;border:3px solid #fffffb;height:100%;border-width:3px 0;position:absolute;top:0;transition: all .5s;visibility: hidden; }
 
 .container:hover .title::before{height:100%;top:0px;visibility: visible;}
 .container:hover .title::after{width:100%;left:0px;visibility: visible;}
 .container:hover .title{visibility: visible;opacity: 1;}
+.container:hover .slideIn{
+    transform: translate(12px 0px);
+}
