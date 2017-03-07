@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--自身浮动法-->
+    <style>
+        *{margin:0;padding: 0;}
+        .wrap{width: 100%;background: #cdcdcd;clear: both;zoom:1;overflow: auto}
+        .left{width: 150px;height:200px;float:left;background: red;}
+        .content{margin:0px 230px 0px 160px;background:yellow;height:420px;}
+        .right{width:220px;height:530px;float:right;background:blue;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="content"></div>
+    </div>
+<!--
+标签浮动跟随的特性。主体一定要放到最后
+此方法需要注意三个div的顺序，左右两栏的顺序不分先后，中间一栏必须放在最后。
+-->
+</body>
+</html>

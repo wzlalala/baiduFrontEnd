@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0;}
+        html,body{height:100%;}
+        #main{width: 100%;height:100%;float:left;background: #ccc;}
+        #main #body{margin:0px 210px;background: #3498db;height:230px;}
+        .left,.right{width:200px;height:320px;float:left;background: pink;}
+        .left{margin-left:-100%;}
+        .right{background:red;margin-left:-200px;float:right;}
+    </style>
+</head>
+<!--
+主体部分div必须在前面，左右两栏谁先谁后无所谓
+-->
+<body>
+    <div id="main">
+        <div id="body"></div>
+    </div>
+    <div class="left"></div>
+    <div class="right"></div>
+</body>
+</html>

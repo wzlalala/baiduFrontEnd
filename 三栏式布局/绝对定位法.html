@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--绝对定位法-->
+    <style>
+        *{margin:0;padding: 0;}
+        body,html{height:100%;}
+        /*body,html设定百分比高度是重点
+        */
+        .left,.right{position: absolute;top:0;width:200px;height:200px;}
+        .left{left:0;background: pink;}
+        .right{right:0;background: blue}
+        .content{margin:0 210px;background: red;height:100%;}
+    </style>
+</head>
+<body>
+        <div class="left"></div>
+        <div class="content"></div>
+        <div class="right"></div>
+<!--
+    中间栏含有最小宽度限制，或者含有宽度的内部元素，当浏览器宽度小到一定程度，会发生层叠现象。
+-->
+</body>
+</html>
