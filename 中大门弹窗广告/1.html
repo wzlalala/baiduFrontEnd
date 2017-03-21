@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+    <style>
+        /*home-window*/
+        #top-banner-main{position: fixed;left: 0;top: 0;width: 100%;height: 100%;font: 12px/24px "Microsoft YaHei", SimSun;color: white;z-index: 99999;}
+        #top-banner-main .top-banner-floor{position: absolute;left: 0;top: 0;width: 100%;height: 100%;background:url('http://www.zhongdamen.com/shop/templates/default/images/shop/ceng.png') repeat;}
+        #top-banner-main .top-banner-center{position: absolute;left: 50%;/*top: 50%;*/width: 600px;height: 400px;margin-left:-300px;margin-top:-200px;}
+        #top-banner-main .top-banner-center a{display: block;width: 600px;height: 400px;}
+        #top-banner-main .top-banner-center a img{display: block;width: 600px;height: 400px;}
+        #top-banner-main .top-banner-center a img:hover{opacity: 1;filter: alpha(opacity=100);}
+        #top-banner-main .top-banner-center span{position: absolute;right: 10px;top: 20px;height:57px;}
+        #top-banner-main .top-banner-center span i{float: left;width: 56px;height: 57px;margin-left: 8px;text-align: center;cursor: pointer;border-radius: 3px;transition: all 0.3s;-webkit-transition: all 0.3s;color: #CCC;}
+        #top-banner-main .top-banner-center span i:hover{-webkit-transform: rotateZ(360deg); -moz-transform: rotateZ(360deg); -o-transform: rotateZ(360deg); -ms-transform: rotateZ(360deg); transform: rotateZ(360deg);}
+    </style>
+</head>
+<body>
+<div id="top-banner-main">
+    <div class="top-banner-floor"></div>
+    <div class="top-banner-center" style="top: -1200px;">
+				<span>
+					<i class="close-b" alt="关闭">
+						<img src="http://www.zhongdamen.com/shop/templates/default/images/shop/close.png" alt="关闭">
+					</i>
+				</span>
+        <a href="http://www.zhongdamen.com/shop/index.php?act=redpacket&amp;op=getredpacket&amp;tid=18" target="_blank">
+            <img src="http://www.zhongdamen.com/shop/templates/default/images/shop/123.jpg" alt="">
+        </a>
+    </div>
+</div>
+<script>
+    $(function () {
+        var t1,t2;
+            $(".top-banner-center").delay(300)
+                    .animate({"top":"60%",},200)
+                    .animate({"top":"42%",},300)
+                    .animate({"top":"54%",},300)
+                    .animate({"top":"48%",},300)
+                    .animate({"top":"50%",},300);
+          $(".close-b").click(function(){
+              hideWin();
+            });
+
+        t1 = setTimeout(function(){hideWin();},3000);
+        $('.top-banner-center,.close-b').mouseover(function(){
+            clearTimeout(t1);
+            clearTimeout(t2);
+        })
+        $('.top-banner-center,.close-b').mouseout(function(){
+           t2 =  setTimeout(function(){
+                hideWin();
+            },500);
+        })
+
+        function hideWin(){
+            $(".top-banner-center").animate(
+                    {
+                        "top":"-12000px"
+                    },1000
+            );
+            $("#top-banner-main").delay(600).fadeOut();
+        }
+
+    })
+</script>
+
+</body>
+</html>
